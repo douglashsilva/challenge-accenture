@@ -1,0 +1,52 @@
+{
+  "name": "challenge-accenture",
+  "version": "1.0.0",
+  "description": "Simple API RESTful",
+  "author": "Douglas Henrique",
+  "license": "MIT",
+  "main": "src/main/index.js",
+  "scripts": {
+    "production": "node src/main/index.js",
+    "development": "nodemon src/main/index.js",
+    "test": "jest --colors --noStackTrace --passWithNoTests --runInBand --no-cache --detectOpenHandles --coverage",
+    "postinstall": "chmod u+x -R ./bin && ./bin/postinstall.sh"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/douglashsilva/challenge-accenture.git"
+  },
+  "bugs": {
+    "url": "https://github.com/douglashsilva/challenge-accenture/issues"
+  },
+  "homepage": "https://github.com/douglashsilva/challenge-accenture#readme",
+  "dependencies": {
+    "@types/jest": "^27.0.3",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "fast-glob": "^3.2.7",
+    "helmet": "^4.6.0",
+    "hsts": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^6.0.13",
+    "morgan": "^1.10.0",
+    "passport": "^0.5.0",
+    "passport-jwt": "^4.0.0",
+    "uuid": "^8.3.2",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.15",
+    "standard": "^16.0.4",
+    "supertest": "^6.1.6"
+  }
+}

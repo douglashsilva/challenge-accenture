@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  api:
+    image: node:lts-alpine
+    container_name: api
+    restart: always
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/api
+    working_dir: /usr/src/api
+    command: npm run ${SERVER_ENVIRONMENT}
+    depends_on:
+      - mongodb
+    networks: 
+      - sca
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: unless-stopped
+    environment: 
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+    ports:
+      - 27017:27017
+    logging:
+      driver: none
+    networks: 
+      - sca
+networks:
+  sca:
+    driver: bridge
